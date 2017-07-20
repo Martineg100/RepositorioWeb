@@ -1,0 +1,29 @@
+﻿@model TestRazor.Models.Venta
+
+@{
+    ViewBag.Title = "Alta";
+}
+
+<h2>Alta</h2>
+
+@Html.Label("Producto")
+@Html.TextBox("txt-producto")
+
+
+@Html.Label("Cliente")
+@Html.TextBox("txt-cliente")
+
+
+<h3>Carro de Venta</h3>
+<table id="tabla-venta" class="table-bordered">
+    <tbody id="tbody-venta"></tbody>
+</table>
+
+<button id="btn-guardar">Guardar</button>
+
+@section scripts
+{
+    <link href="~/Content/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.9.2.custom.js"></script>
+    <script src="~/Scripts/Ventas.js"></script>
+}

@@ -10,6 +10,7 @@ namespace MiUsuario.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.MiMensaje = "hola mundo";
             return View();
         }
 

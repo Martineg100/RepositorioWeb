@@ -43,7 +43,7 @@
         <td>
             
            @*<a href="http://www.google.com" target="_blank">@Html.DisplayFor(modelItem => item.DireccionPagina) </a>*@
-            <a href="http://www.google.com" target="_blank">@Html.DisplayFor(modelItem => item.DireccionPagina) </a>
+            <a onclick="MiU.SetDireccion()" id="iddireccion"> a javascript@*@Html.DisplayFor(modelItem => item.DireccionPagina)*@</a>
             @*@Html.DisplayFor(modelItem => item.DireccionPagina)*@
             
         </td>
@@ -58,4 +58,11 @@
     </tr>
 }
 
+
 </table>
+<script>
+    $("#iddireccion").click(
+        alert("hola");
+
+    )
+</script>

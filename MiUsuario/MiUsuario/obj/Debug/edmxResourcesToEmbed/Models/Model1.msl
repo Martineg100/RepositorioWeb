@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbMiUsuarioModelStoreContainer" CdmEntityContainer="dbMiUsuarioEntities">
+    <EntitySetMapping Name="TMiUsuario">
+      <EntityTypeMapping TypeName="dbMiUsuarioModel.TMiUsuario">
+        <MappingFragment StoreEntitySet="TMiUsuario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="DireccionPagina" ColumnName="DireccionPagina" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TUsuarioPrincipal">
+      <EntityTypeMapping TypeName="dbMiUsuarioModel.TUsuarioPrincipal">
+        <MappingFragment StoreEntitySet="TUsuarioPrincipal">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TMiUsuarioEliminar" FunctionName="dbMiUsuarioModel.Store.TMiUsuarioEliminar" />
+    <FunctionImportMapping FunctionImportName="TMiUsuarioInsertar" FunctionName="dbMiUsuarioModel.Store.TMiUsuarioInsertar" />
+    <FunctionImportMapping FunctionImportName="TMiUsuarioListar" FunctionName="dbMiUsuarioModel.Store.TMiUsuarioListar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbMiUsuarioModel.TMiUsuarioListar_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="DireccionPagina" ColumnName="DireccionPagina" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TMiUsuarioModificar" FunctionName="dbMiUsuarioModel.Store.TMiUsuarioModificar" />
+  </EntityContainerMapping>
+</Mapping>

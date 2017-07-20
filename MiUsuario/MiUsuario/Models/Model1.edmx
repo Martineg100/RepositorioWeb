@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbMiUsuarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TMiUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Referencia" Type="varchar" MaxLength="70" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="50" />
+          <Property Name="DireccionPagina" Type="varchar" MaxLength="70" />
+          <Property Name="Imagen" Type="varchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="TUsuarioPrincipal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="TMiUsuarioEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MiId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TMiUsuarioInsertar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MiRef" Type="varchar" Mode="In" />
+          <Parameter Name="MiUsu" Type="varchar" Mode="In" />
+          <Parameter Name="MiCon" Type="varchar" Mode="In" />
+          <Parameter Name="MiDir" Type="varchar" Mode="In" />
+          <Parameter Name="MiIma" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="TMiUsuarioListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="TMiUsuarioModificar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MiId" Type="int" Mode="In" />
+          <Parameter Name="MiRef" Type="varchar" Mode="In" />
+          <Parameter Name="MiUsu" Type="varchar" Mode="In" />
+          <Parameter Name="MiCon" Type="varchar" Mode="In" />
+          <Parameter Name="MiDir" Type="varchar" Mode="In" />
+          <Parameter Name="MiIma" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="dbMiUsuarioModelStoreContainer">
+          <EntitySet Name="TMiUsuario" EntityType="Self.TMiUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TUsuarioPrincipal" EntityType="Self.TUsuarioPrincipal" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbMiUsuarioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TMiUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Referencia" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DireccionPagina" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Imagen" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TUsuarioPrincipal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="dbMiUsuarioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TMiUsuario" EntityType="Self.TMiUsuario" />
+          <EntitySet Name="TUsuarioPrincipal" EntityType="Self.TUsuarioPrincipal" />
+          <FunctionImport Name="TMiUsuarioEliminar">
+            <Parameter Name="MiId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TMiUsuarioInsertar">
+            <Parameter Name="MiRef" Mode="In" Type="String" />
+            <Parameter Name="MiUsu" Mode="In" Type="String" />
+            <Parameter Name="MiCon" Mode="In" Type="String" />
+            <Parameter Name="MiDir" Mode="In" Type="String" />
+            <Parameter Name="MiIma" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TMiUsuarioListar" ReturnType="Collection(dbMiUsuarioModel.TMiUsuarioListar_Result)" />
+          <FunctionImport Name="TMiUsuarioModificar">
+            <Parameter Name="MiId" Mode="In" Type="Int32" />
+            <Parameter Name="MiRef" Mode="In" Type="String" />
+            <Parameter Name="MiUsu" Mode="In" Type="String" />
+            <Parameter Name="MiCon" Mode="In" Type="String" />
+            <Parameter Name="MiDir" Mode="In" Type="String" />
+            <Parameter Name="MiIma" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="TMiUsuarioListar_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Referencia" Nullable="true" MaxLength="70" />
+          <Property Type="String" Name="Usuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Contrasena" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DireccionPagina" Nullable="true" MaxLength="70" />
+          <Property Type="String" Name="Imagen" Nullable="true" MaxLength="70" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbMiUsuarioModelStoreContainer" CdmEntityContainer="dbMiUsuarioEntities">
+          <EntitySetMapping Name="TMiUsuario">
+            <EntityTypeMapping TypeName="dbMiUsuarioModel.TMiUsuario">
+              <MappingFragment StoreEntitySet="TMiUsuario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="DireccionPagina" ColumnName="DireccionPagina" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TUsuarioPrincipal">
+            <EntityTypeMapping TypeName="dbMiUsuarioModel.TUsuarioPrincipal">
+              <MappingFragment StoreEntitySet="TUsuarioPrincipal">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TMiUsuarioEliminar" FunctionName="dbMiUsuarioModel.Store.TMiUsuarioEliminar" />
+          <FunctionImportMapping FunctionImportName="TMiUsuarioInsertar" FunctionName="dbMiUsuarioModel.Store.TMiUsuarioInsertar" />
+          <FunctionImportMapping FunctionImportName="TMiUsuarioListar" FunctionName="dbMiUsuarioModel.Store.TMiUsuarioListar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbMiUsuarioModel.TMiUsuarioListar_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="DireccionPagina" ColumnName="DireccionPagina" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TMiUsuarioModificar" FunctionName="dbMiUsuarioModel.Store.TMiUsuarioModificar" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

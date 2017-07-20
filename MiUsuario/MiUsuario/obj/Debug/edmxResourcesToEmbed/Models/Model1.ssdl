@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbMiUsuarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TMiUsuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Referencia" Type="varchar" MaxLength="70" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="50" />
+    <Property Name="DireccionPagina" Type="varchar" MaxLength="70" />
+    <Property Name="Imagen" Type="varchar" MaxLength="70" />
+  </EntityType>
+  <EntityType Name="TUsuarioPrincipal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="TMiUsuarioEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MiId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TMiUsuarioInsertar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MiRef" Type="varchar" Mode="In" />
+    <Parameter Name="MiUsu" Type="varchar" Mode="In" />
+    <Parameter Name="MiCon" Type="varchar" Mode="In" />
+    <Parameter Name="MiDir" Type="varchar" Mode="In" />
+    <Parameter Name="MiIma" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="TMiUsuarioListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TMiUsuarioModificar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MiId" Type="int" Mode="In" />
+    <Parameter Name="MiRef" Type="varchar" Mode="In" />
+    <Parameter Name="MiUsu" Type="varchar" Mode="In" />
+    <Parameter Name="MiCon" Type="varchar" Mode="In" />
+    <Parameter Name="MiDir" Type="varchar" Mode="In" />
+    <Parameter Name="MiIma" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="dbMiUsuarioModelStoreContainer">
+    <EntitySet Name="TMiUsuario" EntityType="Self.TMiUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TUsuarioPrincipal" EntityType="Self.TUsuarioPrincipal" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
